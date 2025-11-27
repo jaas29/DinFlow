@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserCircle2, Calendar, TrendingUp, Receipt, Trash2, Settings as SettingsIcon } from 'lucide-react';
 
 const Profile: React.FC = () => {
-  const { user, expenses, totalSpent, monthlySavings, resetApp, deleteAllExpenses } = useApp();
+  const { user, expenses, totalSpent, monthlySavings, resetApp} = useApp();
   const navigate = useNavigate();
   const [showResetConfirm, setShowResetConfirm] = useState(false);
 
