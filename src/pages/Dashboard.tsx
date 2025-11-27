@@ -4,7 +4,7 @@ import { TrendingUp, Wallet, DollarSign, Trash2 } from 'lucide-react';
 import { getCategoryIcon } from '../types';
 
 const Dashboard: React.FC = () => {
-  const { user, expenses, totalSpent, remainingBudget, monthlySavings, availableToSpend, deleteExpense } = useApp();
+  const { user, expenses, totalSpent, remainingBudget, monthlySavings, availableToSpend } = useApp();
 
   if (!user) return null;
 

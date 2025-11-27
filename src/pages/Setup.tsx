@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
 import { ArrowRight } from 'lucide-react';
-import DinoDino from '../components/DinoDino';
+
 
 const Setup: React.FC = () => {
   const navigate = useNavigate();

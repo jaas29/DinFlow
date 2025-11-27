@@ -235,7 +235,7 @@ const Reports: React.FC = () => {
                           }}
                         />
                         <Bar dataKey="amount" radius={[8, 8, 0, 0]}>
-                          {barChartData.map((entry, index) => (
+                          {barChartData.map((_, index) => (
                             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                           ))}
                         </Bar>
