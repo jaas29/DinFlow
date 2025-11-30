@@ -1,3 +1,4 @@
+// A modal component for adding a new expense or income transaction.
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';

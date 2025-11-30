@@ -1,3 +1,4 @@
+//this is a simple toast notification component using React and Tailwind CSS, that gives feedback to the user when an action is successful.
 import React, { useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
 
