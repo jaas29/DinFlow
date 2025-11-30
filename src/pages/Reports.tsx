@@ -1,3 +1,4 @@
+//This is the Reports page component for visualizing financial data.
 import React, { useState } from 'react';
 import { useApp } from '../contexts/AppContext';
 import { PieChart, Calendar } from 'lucide-react';

@@ -1,3 +1,4 @@
+// Reusable component for bottom navigation
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Home, BarChart3, Target, User, Plus } from 'lucide-react';

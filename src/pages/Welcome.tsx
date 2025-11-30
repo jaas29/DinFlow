@@ -1,3 +1,4 @@
+//this is the welcome page component
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Target, PieChart, Shield } from 'lucide-react';

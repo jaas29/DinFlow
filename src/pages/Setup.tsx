@@ -1,3 +1,4 @@
+//This is the setup page component for initial user configuration.
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';

@@ -1,3 +1,4 @@
+// This is the page component for the main dashboard displaying user financial overview and recent expenses.
 import React from 'react';
 import { useApp } from '../contexts/AppContext';
 import { TrendingUp, Wallet, DollarSign, Trash2 } from 'lucide-react';

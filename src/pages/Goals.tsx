@@ -1,3 +1,4 @@
+//This is the page component for managing and tracking user savings goals.
 import React from 'react';
 import { useApp } from '../contexts/AppContext';
 import { TrendingUp, Calendar, Lightbulb } from 'lucide-react';

@@ -1,3 +1,4 @@
+//This is the authentication page component for sign-in and sign-up functionality.
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
