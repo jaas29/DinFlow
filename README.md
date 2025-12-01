@@ -4,12 +4,12 @@ A modern, responsive personal finance web app built with React, TypeScript, and 
 
 ## Features
 
-- 📊 **Smart Budgeting**: Set monthly income and savings goals
-- 💰 **Expense Tracking**: Quickly add and categorize expenses
-- 📈 **Visual Analytics**: Beautiful charts and spending insights
-- 🎯 **Savings Goals**: Track progress towards financial targets
-- 🔒 **Privacy First**: All data stored locally on your device
-- 📱 **Mobile Optimized**: Perfect for on-the-go expense tracking
+- **Smart Budgeting**: Set monthly income and savings goals
+- **Expense Tracking**: Quickly add and categorize expenses
+- **Visual Analytics**: Beautiful charts and spending insights
+- **Savings Goals**: Track progress towards financial targets
+- **Privacy First**: All data stored locally on your device
+- **Mobile Optimized**: Perfect for on-the-go expense tracking
 
 ## Tech Stack
 
@@ -110,7 +110,7 @@ dinflow-app/
 Navigate to the Reports tab to see:
 - Spending by category
 - Monthly totals
-- Visual pie charts
+- Visual pie chart and bar chart
 
 ### Managing Your Profile
 
