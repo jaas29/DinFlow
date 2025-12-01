@@ -105,7 +105,7 @@ const Dashboard: React.FC = () => {
           {expenses.length === 0 ? (
             <div className="text-center py-8">
               <img 
-                src="/images/dino-great-job-cropped.png" 
+                src="/images/DinoGreatJob.png" 
                 alt="No expenses yet" 
                 className="w-32 h-32 mx-auto mb-3"
               />
