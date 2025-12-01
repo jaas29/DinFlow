@@ -61,9 +61,6 @@ const Welcome: React.FC = () => {
         >
           Get Started
         </button>
-        <p className="text-white text-sm text-center opacity-80">
-          No account required • Free forever
-        </p>
       </div>
     </div>
   );

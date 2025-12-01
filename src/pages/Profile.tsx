@@ -11,7 +11,7 @@ const Profile: React.FC = () => {
 
   if (!user) return null;
 
-  const daysSinceStart = 373; // Mock value
+  const daysSinceStart = 1; // Mock value
   const avgTransaction = expenses.length > 0 ? totalSpent / expenses.length : 0;
 
   const handleReset = () => {
