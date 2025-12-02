@@ -14,17 +14,16 @@ const Dashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-background pb-24 max-w-md mx-auto">
       <div className="bg-primary rounded-b-3xl p-6 pb-8">
-        <div className="flex items-center gap-3 mb-6">
-          <img 
-            src="/images/dinflow-logo.png" 
-            alt="DinFlow" 
-            className="w-24 h-24"
+        <div className="flex flex-col items-start gap-2 mb-6">
+          <img
+            src="/images/LogoSmaller.png"
+            alt="DinFlow"
+            className="w-29 h-24"
           />
-        </div>
-
-        <div className="mb-2">
-          <span className="text-white text-sm opacity-90">Total Budget</span>
-          <h2 className="text-white text-3xl font-bold">${user.monthlyIncome.toFixed(2)}</h2>
+          <div>
+            <span className="text-white text-sm opacity-90">Total Budget</span>
+            <h2 className="text-white text-3xl font-bold">${user.monthlyIncome.toFixed(2)}</h2>
+          </div>
         </div>
       </div>
 
