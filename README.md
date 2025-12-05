@@ -27,7 +27,7 @@ A modern, responsive personal finance web app built with React, TypeScript, and 
 
 - **Node.js**: Version 16 or higher ([Download Node.js](https://nodejs.org/))
 - **npm** or **yarn**: Usually comes with Node.js
-- **A text editor or IDE** (VS Code recommended)
+- **A text editor VS Code recommended
 - **A web browser** (Chrome, Firefox, Safari, or Edge)
 
 ### Step-by-Step Installation & Setup Guide
@@ -98,13 +98,6 @@ VITE v5.0.0  ready in XXX ms
 3. The DinFlow app should now load!
 4. If it doesn't open automatically, you may need to copy and paste the URL manually
 
-#### Step 8: Start Using DinFlow
-1. Click **"Get Started"** on the welcome page
-2. Click **"Sign In"** to proceed (no real authentication required)
-3. Enter any email address and proceed
-4. Set your **monthly income** (e.g., $4000)
-5. Choose your **savings percentage** (e.g., 20%)
-6. View your dashboard and start tracking expenses!
 
 ## Project Structure
 
@@ -203,21 +196,6 @@ All data is stored locally in your browser's Local Storage. This means:
 - ✅ No server or account required
 - ✅ Instant access and updates
 - ⚠️ Clearing browser data will reset the app
-
-## Customization
-
-### Colors
-
-Edit `tailwind.config.js` to customize the color scheme:
-
-```javascript
-colors: {
-  primary: {
-    DEFAULT: '#22C55E',  // Main green
-    dark: '#16A34A',
-    light: '#4ADE80',
-  },
-}
 
 
 ## License
