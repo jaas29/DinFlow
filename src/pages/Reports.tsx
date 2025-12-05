@@ -105,19 +105,26 @@ const Reports: React.FC = () => {
                             const percentage = (amount / totalSpent) * 100;
                             const angle = (percentage / 100) * 360;
                             const largeArcFlag = angle > 180 ? 1 : 0;
-                            
+
                             const startRad = (startAngle * Math.PI) / 180;
                             const endRad = ((startAngle + angle) * Math.PI) / 180;
-                            
+
                             const x1 = 50 + 40 * Math.cos(startRad);
                             const y1 = 50 + 40 * Math.sin(startRad);
                             const x2 = 50 + 40 * Math.cos(endRad);
                             const y2 = 50 + 40 * Math.sin(endRad);
-                            
-                            const path = `M 50 50 L ${x1} ${y1} A 40 40 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
-                            
+
+                            // Handle 360-degree case (single expense = 100%)
+                            let path: string;
+                            if (angle === 360) {
+                              // Draw a full circle using two semicircles
+                              path = `M 50 10 A 40 40 0 1 1 50 90 A 40 40 0 1 1 50 10 Z`;
+                            } else {
+                              path = `M 50 50 L ${x1} ${y1} A 40 40 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
+                            }
+
                             startAngle += angle;
-                            
+
                             return (
                               <path
                                 key={category}
