@@ -25,6 +25,14 @@ const Reports: React.FC = () => {
     '#EAB308', // yellow
   ];
 
+  // Create a consistent color mapping for each category (sorted alphabetically for consistency)
+  const categoryColorMap: Record<string, string> = {};
+  Object.keys(categoryTotals)
+    .sort()
+    .forEach((category, index) => {
+      categoryColorMap[category] = colors[index % colors.length];
+    });
+
   // Prepare data for bar chart
   const barChartData = sortedCategories.map(([category, amount]) => ({
     name: category.split(' ')[0], // Shorter names for bars
@@ -101,7 +109,7 @@ const Reports: React.FC = () => {
                       <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                         {(() => {
                           let startAngle = 0;
-                          return sortedCategories.map(([category, amount], index) => {
+                          return sortedCategories.map(([category, amount]) => {
                             const percentage = (amount / totalSpent) * 100;
                             const angle = (percentage / 100) * 360;
                             const largeArcFlag = angle > 180 ? 1 : 0;
@@ -129,7 +137,7 @@ const Reports: React.FC = () => {
                               <path
                                 key={category}
                                 d={path}
-                                fill={colors[index % colors.length]}
+                                fill={categoryColorMap[category]}
                               />
                             );
                           });
@@ -139,7 +147,7 @@ const Reports: React.FC = () => {
                       {/* Percentage Labels Around Chart */}
                       {(() => {
                         let startAngle = 0;
-                        return sortedCategories.map(([category, amount], index) => {
+                        return sortedCategories.map(([category, amount]) => {
                           const percentage = (amount / totalSpent) * 100;
                           const angle = (percentage / 100) * 360;
                           const middleAngle = startAngle + angle / 2;
@@ -163,9 +171,9 @@ const Reports: React.FC = () => {
                               }}
                             >
                               <span className="text-lg">{getCategoryIcon(category)}</span>
-                              <span 
+                              <span
                                 className="font-bold text-sm whitespace-nowrap"
-                                style={{ color: colors[index % colors.length] }}
+                                style={{ color: categoryColorMap[category] }}
                               >
                                 {percentage.toFixed(0)}%
                               </span>
@@ -177,14 +185,14 @@ const Reports: React.FC = () => {
                   </div>
 
                   <div className="space-y-3">
-                    {sortedCategories.map(([category, amount], index) => {
+                    {sortedCategories.map(([category, amount]) => {
                       const percentage = ((amount / totalSpent) * 100).toFixed(0);
                       return (
                         <div key={category} className="flex items-center justify-between py-2">
                           <div className="flex items-center gap-3">
-                            <div 
-                              className="w-3 h-3 rounded-full" 
-                              style={{ backgroundColor: colors[index % colors.length] }}
+                            <div
+                              className="w-3 h-3 rounded-full"
+                              style={{ backgroundColor: categoryColorMap[category] }}
                             />
                             <span className="text-gray-700 text-sm flex items-center gap-2">
                               <span className="text-base">{getCategoryIcon(category)}</span>
@@ -243,8 +251,8 @@ const Reports: React.FC = () => {
                           }}
                         />
                         <Bar dataKey="amount" radius={[8, 8, 0, 0]}>
-                          {barChartData.map((_, index) => (
-                            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                          {barChartData.map((data) => (
+                            <Cell key={`cell-${data.fullName}`} fill={categoryColorMap[data.fullName]} />
                           ))}
                         </Bar>
                       </BarChart>
@@ -252,12 +260,12 @@ const Reports: React.FC = () => {
                   </div>
 
                   <div className="space-y-3">
-                    {sortedCategories.map(([category, amount], index) => (
+                    {sortedCategories.map(([category, amount]) => (
                       <div key={category} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
                         <div className="flex items-center gap-3">
-                          <div 
-                            className="w-3 h-3 rounded-full" 
-                            style={{ backgroundColor: colors[index % colors.length] }}
+                          <div
+                            className="w-3 h-3 rounded-full"
+                            style={{ backgroundColor: categoryColorMap[category] }}
                           />
                           <span className="text-gray-700 text-sm flex items-center gap-2">
                             <span className="text-base">{getCategoryIcon(category)}</span>
