@@ -21,40 +21,90 @@ A modern, responsive personal finance web app built with React, TypeScript, and 
 - **Lucide React** - Icons
 - **Local Storage** - Data persistence
 
-## Getting Started
+## Installation
 
 ### Prerequisites
 
-- Node.js 16+ 
-- npm or yarn
+- **Node.js**: Version 16 or higher ([Download Node.js](https://nodejs.org/))
+- **npm** or **yarn**: Usually comes with Node.js
+- **A text editor or IDE** (VS Code recommended)
+- **A web browser** (Chrome, Firefox, Safari, or Edge)
 
-### Installation
+### Step-by-Step Installation & Setup Guide
 
-1. Extract the project files
-2. Navigate to the project directory:
-   ```bash
-   cd dinflow-app
-   ```
+#### Step 1: Extract the Project Files
+1. Download the project files from the source
+2. Extract the compressed folder to your desired location on your computer
+3. You should now have a folder named `dinflow-app` (or similar)
 
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
+#### Step 2: Open Terminal/Command Prompt
+- **On Windows**: 
+  - Press `Win + R`, type `cmd`, and press Enter
+  - Or search for "Command Prompt" in the Start menu
+- **On macOS**: 
+  - Press `Cmd + Space`, type `terminal`, and press Enter
+- **On Linux**: 
+  - Open your terminal application from the applications menu
 
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-5. Open your browser to `http://localhost:3000`
-
-### Build for Production
-
+#### Step 3: Navigate to Project Directory
 ```bash
-npm run build
+cd path/to/dinflow-app
+```
+Replace `path/to/dinflow-app` with the actual path where you extracted the files.
+
+**Example paths:**
+- Windows: `cd C:\Users\YourName\Desktop\dinflow-app`
+- macOS/Linux: `cd ~/Desktop/dinflow-app`
+
+#### Step 4: Verify Node.js Installation
+Before proceeding, verify that Node.js and npm are installed:
+```bash
+node --version
+npm --version
+```
+You should see version numbers (e.g., `v18.0.0` for Node.js and `9.0.0` for npm).
+
+#### Step 5: Install Project Dependencies
+Run the following command to install all required packages:
+```bash
+npm install
+```
+This will download and install all dependencies listed in `package.json`. This may take a few minutes depending on your internet speed. You'll see a lot of text output—this is normal!
+
+**What's being installed:**
+- React and React DOM
+- React Router for navigation
+- Tailwind CSS for styling
+- Vite for development and building
+- TypeScript for type checking
+- And other supporting libraries
+
+#### Step 6: Start the Development Server
+Once installation completes, start the development server:
+```bash
+npm run dev
+```
+You should see output similar to:
+```
+VITE v5.0.0  ready in XXX ms
+
+➜  Local:   http://localhost:3000/
+➜  press h to show help
 ```
 
-The built files will be in the `dist` directory.
+#### Step 7: Open in Your Browser
+1. Open your web browser (Chrome, Firefox, Safari, Edge, etc.)
+2. Navigate to: `http://localhost:3000/`
+3. The DinFlow app should now load!
+4. If it doesn't open automatically, you may need to copy and paste the URL manually
+
+#### Step 8: Start Using DinFlow
+1. Click **"Get Started"** on the welcome page
+2. Click **"Sign In"** to proceed (no real authentication required)
+3. Enter any email address and proceed
+4. Set your **monthly income** (e.g., $4000)
+5. Choose your **savings percentage** (e.g., 20%)
+6. View your dashboard and start tracking expenses!
 
 ## Project Structure
 
