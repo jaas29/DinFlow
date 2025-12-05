@@ -18,6 +18,7 @@ const AppRoutes: React.FC = () => {
   const [showExpenseModal, setShowExpenseModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
+  // Show success toast when transaction is added
   const handleExpenseSuccess = () => {
     setShowToast(true);
   };
@@ -25,9 +26,12 @@ const AppRoutes: React.FC = () => {
   return (
     <>
       <Routes>
+        {/* Public routes */}
         <Route path="/" element={isOnboarded ? <Navigate to="/dashboard" /> : <Welcome />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/setup" element={<Setup />} />
+
+        {/* Protected routes - only accessible when onboarded */}
         <Route
           path="/dashboard"
           element={isOnboarded ? <Dashboard /> : <Navigate to="/" />}
@@ -44,9 +48,12 @@ const AppRoutes: React.FC = () => {
           path="/profile"
           element={isOnboarded ? <Profile /> : <Navigate to="/" />}
         />
+
+        {/* Catch-all route */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
+      {/* Global UI elements - only shown when user is onboarded */}
       {isOnboarded && (
         <>
           <BottomNav onAddExpense={() => setShowExpenseModal(true)} />

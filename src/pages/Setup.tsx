@@ -16,6 +16,7 @@ const Setup: React.FC = () => {
     if (step === 1 && monthlyIncome) {
       setStep(2);
     } else if (step === 2) {
+      // Save user settings and navigate to dashboard
       setUser({
         email: 'user@dinflow.com',
         monthlyIncome: parseFloat(monthlyIncome),
@@ -25,6 +26,7 @@ const Setup: React.FC = () => {
     }
   };
 
+  // Calculate preview values for the user
   const income = parseFloat(monthlyIncome) || 0;
   const savings = (income * savingsPercentage) / 100;
   const toSpend = income - savings;

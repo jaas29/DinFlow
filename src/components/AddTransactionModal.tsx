@@ -27,8 +27,10 @@ const AddTransactionModal: React.FC<AddTransactionModalProps> = ({ isOpen, onClo
 
   const handleSubmit = () => {
     const parsedAmount = parseFloat(amount);
+    // Validate that amount is positive and category is selected
     if (!amount || parsedAmount <= 0 || !category) return;
 
+    // Add either expense or income based on transaction type
     if (transactionType === 'expense') {
       addExpense({
         amount: parsedAmount,
@@ -45,6 +47,7 @@ const AddTransactionModal: React.FC<AddTransactionModalProps> = ({ isOpen, onClo
       });
     }
 
+    // Clear form and close modal
     setAmount('');
     setCategory('');
     setDescription('');

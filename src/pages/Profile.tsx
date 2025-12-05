@@ -11,15 +11,19 @@ const Profile: React.FC = () => {
 
   if (!user) return null;
 
-  const daysSinceStart = 1; // Mock value
+  // Mock value for days tracking
+  const daysSinceStart = 1;
+  // Calculate average transaction amount
   const avgTransaction = expenses.length > 0 ? totalSpent / expenses.length : 0;
 
+  // Handle reset with confirmation (requires two clicks)
   const handleReset = () => {
     if (showResetConfirm) {
       resetApp();
       navigate('/');
     } else {
       setShowResetConfirm(true);
+      // Auto-dismiss confirmation after 3 seconds
       setTimeout(() => setShowResetConfirm(false), 3000);
     }
   };

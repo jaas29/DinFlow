@@ -8,9 +8,12 @@ const Goals: React.FC = () => {
 
   if (!user) return null;
 
+  // Calculate monthly savings progress percentage
   const savingsProgress = Math.min((remainingBudget / (user.monthlyIncome - monthlySavings)) * 100, 100);
+  // Calculate current month's savings accumulated
   const currentSavings = user.monthlyIncome - monthlySavings - totalSpent;
 
+  // Mock future goals data (not yet functional)
   const futureGoals = [
     { icon: '🛡️', name: 'Emergency Fund', current: 1200, target: 5000, progress: 24 },
     { icon: '✈️', name: 'Vacation', current: 450, target: 2000, progress: 23 },

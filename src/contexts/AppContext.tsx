@@ -21,6 +21,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 const STORAGE_KEY = 'dinflow_data';
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  // Initialize state from localStorage on first render
   const [state, setState] = useState<AppState>(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
@@ -38,6 +39,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     return { user: null, expenses: [], incomes: [], isOnboarded: false };
   });
 
+  // Persist state to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }, [state]);
@@ -47,6 +49,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   const addExpense = (expense: Omit<Expense, 'id'>) => {
+    // Generate unique ID and add expense to the beginning of the list
     const newExpense: Expense = {
       ...expense,
       id: Date.now().toString(),
@@ -58,6 +61,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   const addIncome = (income: Omit<Income, 'id'>) => {
+    // Generate unique ID and add income to the beginning of the list
     const newIncome: Income = {
       ...income,
       id: Date.now().toString(),
@@ -91,6 +95,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     }));
   };
 
+  // Calculate financial metrics from state
   const totalSpent = state.expenses.reduce((sum, exp) => sum + exp.amount, 0);
   const totalIncome = state.incomes.reduce((sum, inc) => sum + inc.amount, 0);
   const monthlySavings = state.user

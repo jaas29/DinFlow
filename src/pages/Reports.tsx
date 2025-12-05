@@ -10,11 +10,13 @@ const Reports: React.FC = () => {
   const { expenses, totalSpent, availableToSpend, remainingBudget } = useApp();
   const [viewMode, setViewMode] = useState<'categories' | 'monthly'>('categories');
   
+  // Group expenses by category and sum amounts for each
   const categoryTotals = expenses.reduce((acc, expense) => {
     acc[expense.category] = (acc[expense.category] || 0) + expense.amount;
     return acc;
   }, {} as Record<string, number>);
 
+  // Sort categories by spending amount (highest first)
   const sortedCategories = Object.entries(categoryTotals).sort((a, b) => b[1] - a[1]);
 
   const colors = [
@@ -34,7 +36,7 @@ const Reports: React.FC = () => {
       categoryColorMap[category] = colors[index % colors.length];
     });
 
-  // Prepare data for bar chart
+  // Transform category data for bar chart visualization
   const barChartData = sortedCategories.map(([category, amount]) => ({
     name: category.split(' ')[0], // Shorter names for bars
     amount: amount,
@@ -107,6 +109,7 @@ const Reports: React.FC = () => {
                   <div className="flex items-center justify-center mb-8 relative">
                     <div className="relative w-64 h-64">
                       {/* SVG Pie Chart */}
+                      {/* SVG Pie Chart - Renders pie slices based on spending percentages */}
                       <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                         {(() => {
                           let startAngle = 0;

@@ -9,6 +9,7 @@ const Dashboard: React.FC = () => {
 
   if (!user) return null;
 
+  // Calculate savings progress as a percentage of available budget
   const savingsProgress = monthlySavings > 0 ? Math.min((remainingBudget / availableToSpend) * 100, 100) : 0;
 
   return (
@@ -108,9 +109,9 @@ const Dashboard: React.FC = () => {
 
           {expenses.length === 0 ? (
             <div className="text-center py-8">
-              <img 
-                src="/images/DinoGreatJob.png" 
-                alt="No expenses yet" 
+              <img
+                src="/images/DinoGreatJob.png"
+                alt="No expenses yet"
                 className="w-32 h-32 mx-auto mb-3"
               />
               <p className="text-gray-600 text-sm">No expenses yet</p>
@@ -118,6 +119,7 @@ const Dashboard: React.FC = () => {
             </div>
           ) : (
             <div className="space-y-3">
+              {/* Display only the 5 most recent expenses */}
               {expenses.slice(0, 5).map((expense) => (
                 <div key={expense.id} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
                   <div className="flex items-center gap-3 flex-1">
