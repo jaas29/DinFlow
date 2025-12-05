@@ -64,9 +64,15 @@ const Setup: React.FC = () => {
               <input
                 type="number"
                 value={monthlyIncome}
-                onChange={(e) => setMonthlyIncome(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === '' || parseFloat(value) >= 0) {
+                    setMonthlyIncome(value);
+                  }
+                }}
                 placeholder="Monthly Income (e.g $4000)"
                 className="w-full p-4 border border-gray-200 rounded-xl outline-none focus:border-primary text-center text-lg mb-6"
+                min="0"
               />
 
               <button

@@ -26,18 +26,19 @@ const AddTransactionModal: React.FC<AddTransactionModalProps> = ({ isOpen, onClo
   const [description, setDescription] = useState('');
 
   const handleSubmit = () => {
-    if (!amount || !category) return;
+    const parsedAmount = parseFloat(amount);
+    if (!amount || parsedAmount <= 0 || !category) return;
 
     if (transactionType === 'expense') {
       addExpense({
-        amount: parseFloat(amount),
+        amount: parsedAmount,
         category,
         description,
         date: new Date().toISOString(),
       });
     } else {
       addIncome({
-        amount: parseFloat(amount),
+        amount: parsedAmount,
         category,
         description,
         date: new Date().toISOString(),

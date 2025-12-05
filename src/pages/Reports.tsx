@@ -5,10 +5,11 @@ import { PieChart, Calendar } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { getCategoryIcon } from '../types';
 
+
 const Reports: React.FC = () => {
   const { expenses, totalSpent, availableToSpend, remainingBudget } = useApp();
   const [viewMode, setViewMode] = useState<'categories' | 'monthly'>('categories');
-
+  
   const categoryTotals = expenses.reduce((acc, expense) => {
     acc[expense.category] = (acc[expense.category] || 0) + expense.amount;
     return acc;
@@ -188,7 +189,7 @@ const Reports: React.FC = () => {
                     {sortedCategories.map(([category, amount]) => {
                       const percentage = ((amount / totalSpent) * 100).toFixed(0);
                       return (
-                        <div key={category} className="flex items-center justify-between py-2">
+                        <div key={category} className="flex items-center justify-between py-2"> 
                           <div className="flex items-center gap-3">
                             <div
                               className="w-3 h-3 rounded-full"

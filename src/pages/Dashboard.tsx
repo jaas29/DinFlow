@@ -55,11 +55,11 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-5 shadow-sm mb-4">
+        <div className={`rounded-2xl p-5 shadow-sm mb-4 ${remainingBudget < 0 ? 'bg-red-50 border border-red-200' : 'bg-white'}`}>
           <div className="flex justify-between items-center mb-4">
             <div>
-              <span className="text-gray-600 text-sm">Remaining This Month</span>
-              <div className="text-2xl font-bold text-green-600">${remainingBudget.toFixed(2)}</div>
+              <span className={`text-sm ${remainingBudget < 0 ? 'text-red-600' : 'text-gray-600'}`}>Remaining This Month</span>
+              <div className={`text-2xl font-bold ${remainingBudget < 0 ? 'text-red-600' : 'text-green-600'}`}>${remainingBudget.toFixed(2)}</div>
             </div>
             <div className="text-right">
               <span className="text-gray-600 text-sm">Spent</span>
@@ -68,10 +68,15 @@ const Dashboard: React.FC = () => {
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div
-              className="bg-gray-900 h-2 rounded-full transition-all"
-              style={{ width: `${availableToSpend > 0 ? Math.max((remainingBudget / availableToSpend) * 100, 0) : 0}%` }}
+              className={`h-2 rounded-full transition-all ${remainingBudget < 0 ? 'bg-red-600' : 'bg-gray-900'}`}
+              style={{ width: `${availableToSpend > 0 ? Math.max(0, (remainingBudget / availableToSpend) * 100) : 0}%` }}
             />
           </div>
+          {remainingBudget < 0 && (
+            <div className="mt-3 p-2 bg-red-100 rounded-lg">
+              <p className="text-red-800 text-xs font-medium">⚠️ You've exceeded your budget by ${Math.abs(remainingBudget).toFixed(2)}</p>
+            </div>
+          )}
         </div>
 
         <div className="bg-white rounded-2xl p-5 shadow-sm mb-4">
